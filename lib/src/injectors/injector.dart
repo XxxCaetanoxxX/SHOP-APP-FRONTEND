@@ -1,3 +1,4 @@
+import 'package:shop_card/src/core/bloc/index_dashboard.cubit.dart';
 import 'package:shop_card/src/features/gerencia_de_produtos/data/datasources/gerencia_de_produtos_data_source.dart';
 import 'package:shop_card/src/features/gerencia_de_produtos/data/repository/gerencia_de_produtos.repository_impl.dart';
 import 'package:shop_card/src/features/gerencia_de_produtos/domain/repositories/gerencia_de_produtos.repository.dart';
@@ -37,4 +38,7 @@ Future<void> init() async {
       inserirProdutoUseCase: sl<InserirProdutoUseCase>(),
     ),
   );
+
+  //cubit
+  sl.registerFactory(()=> IndexDashboardCubit());
 }

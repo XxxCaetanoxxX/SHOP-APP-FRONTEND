@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_card/main.dart';
-import 'package:shop_card/src/core/bloc/base_state.dart';
-import 'package:shop_card/src/core/bloc/erro.state.dart';
-import 'package:shop_card/src/core/bloc/loading.state.dart';
+import 'package:shop_card/src/core/bloc/states/base_state.dart';
+import 'package:shop_card/src/core/bloc/states/erro.state.dart';
+import 'package:shop_card/src/core/bloc/states/loading.state.dart';
 import 'package:shop_card/src/features/gerencia_de_produtos/data/models/produto.model.dart';
 import 'package:shop_card/src/features/gerencia_de_produtos/presentation/bloc/events/adicionar_produto.event.dart';
 import 'package:shop_card/src/features/gerencia_de_produtos/presentation/bloc/events/buscar_produtos.event.dart';
