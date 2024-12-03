@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_card/src/core/bloc/index_dashboard.cubit.dart';
-import 'package:shop_card/src/core/presentation/views/configuracoes.view.dart';
+import 'package:shop_card/src/features/configuracoes/presentation/views/configuracoes.view.dart';
 import 'package:shop_card/src/features/gerencia_de_produtos/presentation/views/lista_de_itens.view.dart';
 import 'package:shop_card/src/features/home.view.dart';
 
@@ -43,10 +43,10 @@ class DashBoardView extends StatelessWidget {
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(
-                      Icons.perm_device_info_rounded,
+                      Icons.settings,
                       size: 26,
                     ),
-                    label: 'Informações',
+                    label: 'Config',
                   ),
                 ],
                 currentIndex: state,
