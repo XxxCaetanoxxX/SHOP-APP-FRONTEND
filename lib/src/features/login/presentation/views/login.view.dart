@@ -18,7 +18,6 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   void initState() {
-    // initSetting();
     super.initState();
   }
 
@@ -37,11 +36,11 @@ class _LoginViewState extends State<LoginView> {
                 padding: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height * 0.15,
                 ),
-                child: SizedBox(
+                child: const SizedBox(
                   width: 250,
-                  child: Image.asset(
-                    'assets/logo.png',
-                  ),
+                  child: FlutterLogo(
+                    size: 200,
+                  )
                 ),
               ),
             ),

@@ -17,43 +17,34 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("Home Page"),
       ),
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
+          child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
             ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Sair'),
-              onTap: () {
-                Navigator.of(context, rootNavigator: true)
-                    .pushAndRemoveUntil(
-                    MaterialPageRoute(
-                        builder: (context) =>
-                        const LoginView()),
-                        (Route<dynamic> route) => false);
-              },
-            ),
-          ],
-        )
-      ),
+            child: Text('Drawer Header'),
+          ),
+          ListTile(
+            title: const Text('Item 1'),
+            onTap: () {},
+          ),
+          ListTile(
+            title: const Text('Item 2'),
+            onTap: () {},
+          ),
+          ListTile(
+            title: const Text('Sair'),
+            onTap: () {
+              Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => const LoginView()),
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
+      )),
       body: Container(),
     );
   }
