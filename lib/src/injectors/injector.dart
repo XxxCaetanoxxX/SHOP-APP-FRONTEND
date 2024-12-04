@@ -1,4 +1,6 @@
 import 'package:shop_card/src/core/bloc/index_dashboard.cubit.dart';
+import 'package:shop_card/src/features/configuracoes/presentation/bloc/recuperar_info_app.cubit.dart';
+import 'package:shop_card/src/features/configuracoes/presentation/bloc/swtich.cubit.dart';
 import 'package:shop_card/src/features/gerencia_de_produtos/data/datasources/gerencia_de_produtos_data_source.dart';
 import 'package:shop_card/src/features/gerencia_de_produtos/data/repository/gerencia_de_produtos.repository_impl.dart';
 import 'package:shop_card/src/features/gerencia_de_produtos/domain/repositories/gerencia_de_produtos.repository.dart';
