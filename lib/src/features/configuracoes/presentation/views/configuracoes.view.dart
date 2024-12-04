@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:shop_card/src/features/configuracoes/presentation/bloc/recuperar_info_app.cubit.dart';
 import 'package:shop_card/src/features/configuracoes/presentation/bloc/swtich.cubit.dart';
 
 class ConfiguracoesView extends StatefulWidget {
@@ -12,13 +13,10 @@ class ConfiguracoesView extends StatefulWidget {
 
 class _ConfiguracoesViewState extends State<ConfiguracoesView> {
   bool positive = false;
-  String versaoApp = "";
   final ScrollController _scrollController = ScrollController();
-  bool switchValue = false;
 
   @override
   void initState() {
-    recuperarPackageInfo();
     super.initState();
   }
 
@@ -40,6 +38,9 @@ class _ConfiguracoesViewState extends State<ConfiguracoesView> {
         providers: [
           BlocProvider<DarkModeSwitchCubit>(
             create: (BuildContext context) => DarkModeSwitchCubit(),
+          ),
+          BlocProvider<RecuperarInfoAppCubit>(
+            create: (BuildContext context) => RecuperarInfoAppCubit(),
           )
         ],
         child: Scrollbar(
@@ -74,13 +75,17 @@ class _ConfiguracoesViewState extends State<ConfiguracoesView> {
                                 ),
                                 maxLines: 1,
                               ),
-                              Text(
-                                'Versão $versaoApp',
-                                style: const TextStyle(
-                                    color: Colors.black38,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15),
-                                maxLines: 1,
+                              BlocBuilder<RecuperarInfoAppCubit, String>(
+                                builder: (context, state) {
+                                  return Text(
+                                    'Versão $state',
+                                    style: const TextStyle(
+                                        color: Colors.black38,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                    maxLines: 1,
+                                  );
+                                },
                               ),
                             ],
                           ),
@@ -92,8 +97,8 @@ class _ConfiguracoesViewState extends State<ConfiguracoesView> {
                       child: Tooltip(
                         message: "Changelog",
                         onTriggered: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
+                        child: const Padding(
+                          padding:  EdgeInsets.symmetric(
                               vertical: 8, horizontal: 8),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -113,7 +118,7 @@ class _ConfiguracoesViewState extends State<ConfiguracoesView> {
                       ),
                     ),
                     const Divider(),
-                    Expanded(
+                    const Expanded(
                       child: Tooltip(
                         message: "Politica de privacidade",
                         child: InkWell(
@@ -139,7 +144,7 @@ class _ConfiguracoesViewState extends State<ConfiguracoesView> {
                       ),
                     ),
                     const Divider(),
-                    Expanded(
+                    const Expanded(
                       child: Tooltip(
                         message: "Termos de uso",
                         child: InkWell(
@@ -217,13 +222,6 @@ class _ConfiguracoesViewState extends State<ConfiguracoesView> {
         ),
       ),
     );
-  }
-
-  Future<void> recuperarPackageInfo() async {
-    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    setState(() {
-      versaoApp = packageInfo.version;
-    });
   }
 
   @override
